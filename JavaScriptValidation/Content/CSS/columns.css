@@ -1,0 +1,114 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+}
+
+    .row:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    float: left;
+    min-height: 1px;
+}
+
+.col-1 {
+    width: 8.333333333333333%;
+}
+
+.col-2 {
+    width: 16.66666666666667%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33333333333333%;
+}
+
+.col-5 {
+    width: 41.66666666666667%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33333333333333%;
+}
+
+.col-8 {
+    width: 66.66666666666666%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33333333333333%;
+}
+
+.col-11 {
+    width: 91.66666666666666%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.container, .container-fluid {
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 68%;
+}
+
+.container-fluid {
+    width: 100%;
+}
+
+.img-responsive {
+    display: block;
+    width: 100%;
+}
+
+.nopadding {
+    padding: 0 !important;
+}
+
+.nomargin {
+    margin: 0 !important;
+}
+
+
+@media only screen and (min-width:769px) {
+    .hiddenDesktop {
+        display: none;
+    }
+}
+
+/* Når skærmen er mindre end 480px bred */
+@media only screen and (max-width:480px) {
+    [class*="col-"] {
+        width: 100%;
+    }
+
+    .hiddenMobile {
+        display: none;
+    }
+}

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>VALIDATION!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="Content/CSS/columns.css" rel="stylesheet" />
+    <link href="Content/CSS/main.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <form action="#" id="contactForm">
+                        <div class="col-6">
+                            <label for="firstname">Fornavn</label><input type="text" id="firstname" /><span id="firstnameErr"></span>
+                        </div>
+                        <div class="col-6">
+                            <label for="lastname">Efternavn</label><input type="text" id="lastname" /><span id="lastnameErr"></span>
+                        </div>
+                        <div class="col-12">
+                            <label for="email">Email</label><input type="text" id="email" /><span id="emailErr"></span>
+                        </div>
+                        <div class="col-12">
+                            <label for="subject">Emne</label><input type="text" id="subject" /><span id="subjectErr"></span>
+                        </div>
+                        <div class="col-12">
+                            <label for="message">Besked</label><textarea id="message"></textarea><span id="messageErr"></span>
+                        </div>
+                        <div class="col-12">
+                            <input type="button" value="Send" onclick="validateForm()" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function validateForm() {
+            var firstnameField = document.getElementById("firstname");
+            var firstnameError = document.getElementById("firstnameErr");
+            var lastnameField = document.getElementById("lastname");
+            var lastnameError = document.getElementById("lastnameErr");
+            var emailField = document.getElementById("email");
+            var emailError = document.getElementById("emailErr");
+            var subjectField = document.getElementById("subject");
+            var subjectError = document.getElementById("subjectErr");
+            var messageField = document.getElementById("message");
+            var messageError = document.getElementById("messageErr");
+
+            var canSubmit = true;
+
+            // I Denne linje, tjekker vi om der står noget i firstname input feltet.
+            // Dette gør vi ved at tage fat i dens 'value' og tjekker med '.length' hvor mange
+            // karaktere der står i feltet.
+            // Hvis der står mere end 0 karaktere, kan vi antage at der er blevet skrevet noget i firstname input feltet.
+            if (firstnameField.value.length > 0) {
+                firstnameError.innerHTML = "";
+            }
+            else {
+                firstnameField.placeholder = "Du mangler at udfylde dit fornavn.";
+                firstnameError.innerHTML = "Du mangler at udfylde dit fornavn.";
+                canSubmit = false;
+            }
+
+            if (lastnameField.value.length > 0) {
+                lastnameError.innerHTML = "";
+            }
+            else {
+                lastnameField.placeholder = "Du mangler at udfylde dit efternavn.";
+                lastnameError.innerHTML = "Du mangler at udfylde dit efternavn.";
+                canSubmit = false;
+            }
+
+            if (emailField.value.length > 5 && emailField.value.indexOf("@") > 0) {
+                emailError.innerHTML = "";
+            }
+            else {
+                emailField.placeholder = "Du mangler at udfylde din email. Eller din email er ikke korrekt indtastet.";
+                emailError.innerHTML = "Du mangler at udfylde din email.  Eller din email er ikke korrekt indtastet.";
+                canSubmit = false;
+            }
+
+            if (subjectField.value.length > 0) {
+                subjectError.innerHTML = "";
+            }
+            else {
+                subjectField.placeholder = "Du mangler at udfylde emnet.";
+                subjectError.innerHTML = "Du mangler at udfylde emnet.";
+                canSubmit = false;
+            }
+
+            if (messageField.value.length > 0) {
+                messageError.innerHTML = "";
+            }
+            else {
+                messageField.placeholder = "Du mangler at skrive en besked.";
+                messageError.innerHTML = "Du mangler at skrive en besked.";
+                canSubmit = false;
+            }
+
+            if (canSubmit == true) {
+                document.getElementById("contactForm").submit();
+                alert("Din besked er blevet sendt, tak for dit input.");
+            }
+        }
+    </script>
+</body>
+</html>
